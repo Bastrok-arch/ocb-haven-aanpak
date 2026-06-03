@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Haven Antwerpen — van data naar sales-lijst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deepsea:#011b28; --blue:#025682; --sky:#3d94c1; --upbeat:#5692be;
+    --ice:#c9edff; --paper:#f4f8fb; --ink:#0d2733; --muted:#5a7585;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Montserrat',sans-serif;color:var(--ink);background:var(--paper);
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .page{max-width:1080px;margin:0 auto;padding:40px 36px 56px}
+  h1,h2,.step-num,.kpi-num{font-family:'M PLUS Rounded 1c',sans-serif}
+
+  header{background:linear-gradient(135deg,var(--deepsea),var(--blue));
+    color:#fff;border-radius:18px;padding:34px 38px;margin-bottom:26px;
+    box-shadow:0 10px 30px rgba(1,27,40,.18)}
+  header .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ice);font-weight:600;margin-bottom:10px}
+  header h1{font-size:29px;font-weight:800;line-height:1.2}
+  header p{margin-top:12px;font-size:15px;max-width:66ch;color:#d6ecf7}
+
+  .phase{display:flex;align-items:center;gap:12px;margin:24px 2px 14px}
+  .phase .tag{font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;font-size:13px;
+    letter-spacing:.04em;color:#fff;background:var(--sky);padding:5px 13px;border-radius:8px}
+  .phase .lbl{font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;font-size:16px;color:var(--deepsea)}
+  .phase .lbl span{color:var(--muted);font-weight:500;font-family:'Montserrat',sans-serif;font-size:14px}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .step{background:#fff;border-radius:16px;padding:22px 24px;
+    border:1px solid #e1ecf3;box-shadow:0 3px 12px rgba(1,27,40,.05);
+    display:flex;flex-direction:column;gap:12px;break-inside:avoid}
+  .step.wide{grid-column:1 / -1}
+  .step.future{background:#fbfdfe;border:1px dashed #b8cdda;box-shadow:none}
+  .step.future .step-num{background:#e6eef4;color:var(--muted);font-size:14px}
+  .step.future .step-title{color:var(--blue)}
+  .step.future .kpi{border-top-color:#cdddE8}
+  .step.future .kpi-num{font-size:15px;color:var(--muted);font-family:'Montserrat',sans-serif;font-weight:600}
+  .phase.next .tag{background:var(--muted)}
+  .step-head{display:flex;align-items:center;gap:12px}
+  .step-num{display:flex;align-items:center;justify-content:center;
+    width:38px;height:38px;flex:0 0 38px;border-radius:11px;
+    background:var(--ice);color:var(--blue);font-weight:800;font-size:18px}
+  .step-title{font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;
+    font-size:17px;color:var(--deepsea)}
+  .step-desc{font-size:13.5px;color:var(--muted);flex:1}
+  .step-desc b{color:var(--ink);font-weight:600}
+  .kpi{display:flex;align-items:baseline;gap:9px;padding-top:10px;
+    border-top:1px dashed #d6e4ee}
+  .kpi-num{font-weight:800;font-size:26px;color:var(--blue);line-height:1}
+  .kpi-lbl{font-size:12px;color:var(--ink);font-weight:500}
+
+  footer{margin-top:24px;background:#fff;border-radius:16px;padding:22px 26px;
+    border:1px solid #e1ecf3;break-inside:avoid}
+  footer h2{font-size:15px;color:var(--deepsea);font-weight:700;margin-bottom:12px}
+  .res{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{background:var(--ice);color:var(--blue);font-size:12.5px;font-weight:600;
+    padding:7px 13px;border-radius:20px}
+  .note{margin-top:14px;font-size:11.5px;color:var(--muted);font-style:italic}
+  .brand{margin-top:20px;font-size:11px;color:var(--muted);text-align:right}
+
+  @media print{
+    body{background:#fff}.page{padding:0}
+    header,.step,footer{box-shadow:none}
+    .step-num,.kpi-num,.chip,.phase .tag,header{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    @page{size:A4;margin:13mm}
+  }
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="eyebrow">OCB · Sales-intelligence · Haven Antwerpen</div>
+    <h1>Van ruwe data naar een gerichte sales-lijst</h1>
+    <p>Van een rudimentaire ICP — de haven-populatie die we tegen onze eigen klantenbasis matchen —
+       naar ICP 2.0: die populatie verrijkt, verdiept en omgezet in upsell- en prospect-haakjes.
+       Klaar voor Ronny en Eric.</p>
+  </header>
+
+  <!-- FASE 1 -->
+  <div class="phase">
+    <span class="tag">Fase 1</span>
+    <span class="lbl">ICP rudimentair <span>· het profiel dat we tegen onze klanten-DB matchen</span></span>
+  </div>
+
+  <div class="grid">
+    <div class="step wide">
+      <div class="step-head"><div class="step-num">1</div>
+        <div class="step-title">Havenpopulatie afgebakend (locatie + NACEBEL)</div></div>
+      <div class="step-desc">Het rudimentaire profiel = <b>locatie + sector</b>. We bakenden de haven af met
+        een <b>geofence, niet zomaar een postcode</b> (KBO gefilterd op haven-postcodes én de straten uit de
+        officiële havenkaart), en daarbinnen een <b>NACEBEL-whitelist</b> (enkel port-relevante sectoren;
+        groothandel en particulieren eruit) op <b>vestiging-grain</b>, want een keuring gebeurt op de site.
+        Dit is de lijst die we vervolgens tegen onze eigen klantenbasis matchen. Kwaliteitscontrole: alle
+        grote spelers (PSA, Katoen Natie, MSC, Vopak, DEME…) moesten erin blijven.</div>
+      <div class="kpi"><span class="kpi-num">1.236</span>
+        <span class="kpi-lbl">havenvestigingen · 1.041 ondernemingen (uit 8.422 ruwe treffers)</span></div>
+    </div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="phase">
+    <span class="tag">Fase 2</span>
+    <span class="lbl">ICP 2.0 <span>· de 1.041 verrijkt, verdiept en begrepen</span></span>
+  </div>
+
+  <div class="grid">
+
+    <div class="step">
+      <div class="step-head"><div class="step-num">2</div>
+        <div class="step-title">Klantdata gekoppeld</div></div>
+      <div class="step-desc">De OCB-klanten en 430.283 opdrachten gekoppeld aan de havenpopulatie
+        <b>op ondernemingsnummer, niet op naam</b> — zo missen afwijkende handelsnamen geen match.</div>
+      <div class="kpi"><span class="kpi-num">231</span>
+        <span class="kpi-lbl">zijn al klant = 22% van de haven</span></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="step-num">3</div>
+        <div class="step-title">Keuringen per klant in kaart</div></div>
+      <div class="step-desc">Elke klant gekoppeld aan zijn keuringsdomeinen via de productlegenda,
+        zodat we per bedrijf zien wát ze bij ons laten keuren.</div>
+      <div class="kpi"><span class="kpi-num">2,51</span>
+        <span class="kpi-lbl">keuringsdomeinen gemiddeld per havenklant</span></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="step-num">4</div>
+        <div class="step-title">Klantenbestand verrijkt</div></div>
+      <div class="step-desc">De ontbrekende NACEBEL-codes aangevuld uit KBO, zodat klanten
+        <b>eerlijk op sector vergeleken</b> kunnen worden (en meteen bruikbaar voor latere ICP's).</div>
+      <div class="kpi"><span class="kpi-num">23% → 92%</span>
+        <span class="kpi-lbl">NACE-dekking van de klanten</span></div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="step-num">5</div>
+        <div class="step-title">Upsell-gap berekend</div></div>
+      <div class="step-desc">Per sector bepaald welke keuringen collega-bedrijven typisch afnemen,
+        en vergeleken met elke klant. Het verschil, <b>mét peer-percentage</b>, is een gesprekshaakje —
+        geen vastgestelde behoefte.</div>
+      <div class="kpi"><span class="kpi-num">201</span>
+        <span class="kpi-lbl">klanten met een upsell-gap (105 sterk)</span></div>
+    </div>
+
+    <div class="step wide">
+      <div class="step-head"><div class="step-num">6</div>
+        <div class="step-title">Prospect-haakjes + oplevering</div></div>
+      <div class="step-desc">Voor de bedrijven die nog geen klant zijn de typische sector-keuringsmix
+        als opener bepaald. Alles gebundeld in een haven-master, een upsell-lijst en prospect-haakjes
+        voor Ronny en Eric, die zelf prioriteren.</div>
+      <div class="kpi"><span class="kpi-num">752</span>
+        <span class="kpi-lbl">prospects met een sector-haakje (van 810)</span></div>
+    </div>
+
+  </div>
+
+  <!-- VOLGENDE -->
+  <div class="phase next">
+    <span class="tag">Volgende</span>
+    <span class="lbl">V3 &amp; terugkoppeling <span>· nog te doen</span></span>
+  </div>
+
+  <div class="grid">
+    <div class="step future">
+      <div class="step-head"><div class="step-num">V3</div>
+        <div class="step-title">Extra verrijking</div></div>
+      <div class="step-desc">De 1.041 verder verdiepen met omzet/FTE (Companyweb/NBB), keuringsbehoefte
+        via vergunningen (Omgevingsloket/VLAREM), beslissers (DMU) en een prioriteringsmatrix
+        (breedte × omzet).</div>
+      <div class="kpi"><span class="kpi-num">toekomst</span>
+        <span class="kpi-lbl">geparkeerd tot Fase 1 + 2 in gebruik zijn</span></div>
+    </div>
+
+    <div class="step future">
+      <div class="step-head"><div class="step-num">↻</div>
+        <div class="step-title">Terugkoppeling naar eigen klanten-DB</div></div>
+      <div class="step-desc">De NACE-verrijkte klant-master en deze findings terugvoeren in onze eigen
+        klanten-database, zodat élke volgende leadgen-oefening automatisch een "reeds klant?"-check heeft
+        en sales-feedback de ICP scherpt.</div>
+      <div class="kpi"><span class="kpi-num">de lus</span>
+        <span class="kpi-lbl">eigen data wordt het vertrekpunt van de volgende ronde</span></div>
+    </div>
+  </div>
+
+  <footer>
+    <h2>Wat sales in handen krijgt</h2>
+    <div class="res">
+      <span class="chip">Haven-master · 1.236 vestigingen</span>
+      <span class="chip">Upsell-lijst · 201 klanten</span>
+      <span class="chip">Prospect-haakjes · 752 bedrijven</span>
+      <span class="chip">Per lead: keuringsmix · gap met % · recency · omzet · contact</span>
+    </div>
+    <p class="note">De gap is een gesprekshaakje op basis van sectorgelijkenis, geen vastgestelde behoefte.
+      Ronny en Eric prioriteren zelf.</p>
+  </footer>
+
+  <div class="brand">OCB — Stop met hopen dat het goed zit. · 2026-06-03</div>
+
+</div>
+</body>
+</html>
